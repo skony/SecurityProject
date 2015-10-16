@@ -3,8 +3,12 @@ package security;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import db.DBProcedures;
+
 public class Authenticator 
 {
+	
+	
 	public static void create_account(String name, String pwd1, String pwd2)
 	{
 		
@@ -27,7 +31,9 @@ public class Authenticator
 	
 	public static Account login(String name, String pwd)
 	{
-		return null;
+		String epwd = SecurityUtils.encrypt(pwd);
+		pwd= null;
+		return DBProcedures.login(name, epwd);
 	}
 	
 	public static void logout(Account acc)
