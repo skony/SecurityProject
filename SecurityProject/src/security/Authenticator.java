@@ -9,8 +9,18 @@ public class Authenticator
 {
 	
 	
-	public static void create_account(String name, String pwd1, String pwd2)
+	public static boolean create_account(String name, String pwd1, String pwd2)
 	{
+		String epwd = SecurityUtils.encrypt(pwd1);
+		String epwd2 = SecurityUtils.encrypt(pwd2);
+		pwd1= null;
+		pwd2= null;
+		if(SecurityUtils.checkString(name))
+			return false;
+		if(!epwd.equals(epwd2))
+			return false;
+		
+		return DBProcedures.create_user(name, "john", name, epwd);
 		
 	}
 	
@@ -33,6 +43,8 @@ public class Authenticator
 	{
 		String epwd = SecurityUtils.encrypt(pwd);
 		pwd= null;
+		if(SecurityUtils.checkString(name))
+			return null;
 		return DBProcedures.login(name, epwd);
 	}
 	

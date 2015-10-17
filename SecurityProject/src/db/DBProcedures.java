@@ -46,4 +46,27 @@ public class DBProcedures {
 	}
 	
 	
+	public static boolean create_user(String username, String firstname, String lastname, String pwd){
+		Connection conn = getConn();
+		try{
+			CallableStatement stmt = conn.prepareCall("BEGIN create_user_sec(?,?,?,?,?); END;");
+			stmt.setString(1, username); //username
+			stmt.setString(2, firstname);
+			stmt.setString(3, lastname);
+			stmt.setInt(4, 2);
+			stmt.setString(5, pwd);// pw
+			stmt.execute();
+			stmt.close();
+			stmt = null;
+			conn.close();
+			conn = null;
+			return true;
+		}
+		catch (SQLException e) {
+			System.out.println(e.getLocalizedMessage());
+			return false;
+		}
+	}
+	
+	
 }

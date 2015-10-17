@@ -1,14 +1,6 @@
 
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
-import db.DBProcedures;
-import db.DataStoreInfo;
-import oracle.jdbc.OracleCallableStatement;
-import oracle.jdbc.OracleTypes;
 import security.Authenticator;
 
 public class Main {
@@ -17,6 +9,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		Authenticator auth = new Authenticator();
 		System.out.println(auth.login("root", "rootpw").toString());
+		System.out.println(auth.create_account("john5", "1235", "1235"));
 		
 	}
 
