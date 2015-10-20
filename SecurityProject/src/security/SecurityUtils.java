@@ -5,7 +5,7 @@ public class SecurityUtils {
 	
 	public static String encrypt(String pw){
 		//TODO ENCRYPT PWD
-		String epw = pw;
+		String epw = BCrypt.hashpw(pw, BCrypt.gensalt(12));
 		pw = null;
 		return epw;
 	}
