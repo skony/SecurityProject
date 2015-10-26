@@ -4,15 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Change Password</title>
 </head>
 <body>
 	<form action="change_pwd" method="post">
 		Current password: <input type="text" name="pass1">
 		<br/>
-		New password: <input type="text" name="pass2" />
+		New password: <input type="password" name="pass2" />
 		<br/>
-		Repeat password: <input type="text" name="pass3" />
+		Repeat password: <input type="password" name="pass3" />
 		<br/>
 		<input type="submit" value="Change" />
 	</form>

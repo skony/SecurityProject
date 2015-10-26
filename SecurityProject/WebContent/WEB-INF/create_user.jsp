@@ -4,15 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Create User</title>
 </head>
 <body>
 	<form action="create_user" method="post">
 		Username: <input type="text" name="username">
 		<br/>
-		Password: <input type="text" name="pass1" />
+		Password: <input type="password" name="pass1" />
 		<br/>
-		Repeat password: <input type="text" name="pass2" />
+		Repeat password: <input type="password" name="pass2" />
 		<br/>
 		<input type="submit" value="Create" />
 	</form>

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import security.Authenticator;
 
 @WebServlet("/delete_user")
@@ -31,10 +32,13 @@ public class DeleteUserServlet extends HttpServlet
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		
 		String login = (String) request.getSession().getAttribute("login");
 		if(login.equals("admin"))
 			request.getRequestDispatcher("/WEB-INF/delete_user.jsp").forward(request, response);
 		else
 			request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
 	}
+	
+	
 }
