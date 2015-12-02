@@ -17,9 +17,10 @@ public class CreateUserServlet extends HttpServlet
 	{
 		String username = request.getParameter("username");
 		String pass1 = request.getParameter("pass1");
-		String pass2 = request.getParameter("pass1");
+		String pass2 = request.getParameter("pass2");
+		int role = Integer.parseInt(request.getParameter("role"));
 		
-		if(Authenticator.create_account(username, pass1, pass2))
+		if(Authenticator.create_account(username, pass1, pass2, role))
 		{
 			response.sendRedirect("/SecurityProject/home");
 		}

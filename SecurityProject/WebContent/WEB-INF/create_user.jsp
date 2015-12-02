@@ -8,12 +8,13 @@
 </head>
 <body>
 	<form action="create_user" method="post">
-		Username: <input type="text" name="username">
+		Username: <input type="text" name="username"/>
 		<br/>
 		Password: <input type="password" name="pass1" />
 		<br/>
 		Repeat password: <input type="password" name="pass2" />
 		<br/>
+		Role: <input type="number" name="role" min="2" max="5"/>
 		<input type="submit" value="Create" />
 	</form>
 </body>

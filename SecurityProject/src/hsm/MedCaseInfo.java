@@ -9,7 +9,7 @@ private int id;
 private int doctorid;
 
 
-public MedCaseInfo(int diseaseId, String prescription, String notes, int id, int doctorid) {
+public MedCaseInfo( int id,int diseaseId, String prescription, String notes, int doctorid) {
 	this.diseaseId = diseaseId;
 	this.prescription = prescription;
 	this.notes = notes;

@@ -6,32 +6,35 @@ public class MedRecord {
 	private MedCaseInfo medcase;
 	private AdminInfo admininfo;
 	private StatisticsIndicatorId stats;
+	private InternalInfo inf;
+	private int id;
 	
-	
+	public int getId() {
+		return id;
+	}
+	public InternalInfo getInf() {
+		return inf;
+	}
 	public PatReport getPatreport() {
 		return patreport;
 	}
-	public MedRecord(PatReport patreport, MedCaseInfo medcase, AdminInfo admininfo, StatisticsIndicatorId stats) {
+	public MedRecord(int id, PatReport patreport, MedCaseInfo medcase, AdminInfo admininfo, InternalInfo internal, StatisticsIndicatorId stats) {
+		this.id = id;
 		this.patreport = patreport;
 		this.medcase = medcase;
 		this.admininfo = admininfo;
+		this.inf = internal;
 		this.stats = stats;
 	}
-	public void setPatreport(PatReport patreport) {
-		this.patreport = patreport;
-	}
+	
 	public MedCaseInfo getMedcase() {
 		return medcase;
 	}
-	public void setMedcase(MedCaseInfo medcase) {
-		this.medcase = medcase;
-	}
+
 	public AdminInfo getAdmininfo() {
 		return admininfo;
 	}
-	public void setAdmininfo(AdminInfo admininfo) {
-		this.admininfo = admininfo;
-	}
+	
 	public StatisticsIndicatorId getStats() {
 		return stats;
 	}

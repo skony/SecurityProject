@@ -2,14 +2,18 @@ package hsm;
 
 public class StatisticsIndicatorId {
 
-	private int id;
+	private float percentageOfAffectedPatients;
+	private float percentageOfTotal;
 	
-	public StatisticsIndicatorId(int idd){
-		this.id = idd;
+	public float getPercentageOfAffectedPatients() {
+		return percentageOfAffectedPatients;
 	}
-	
-	public int getId(){
-		return id;
+	public StatisticsIndicatorId(float percentageOfAffectedPatients, float percentageOfTotal) {
+		
+		this.percentageOfAffectedPatients = percentageOfAffectedPatients;
+		this.percentageOfTotal = percentageOfTotal;
 	}
-	
+	public float getPercentageOfTotal() {
+		return percentageOfTotal;
+	}
 }
