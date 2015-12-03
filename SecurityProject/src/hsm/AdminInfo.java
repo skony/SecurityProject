@@ -3,9 +3,9 @@ package hsm;
 public class AdminInfo {
 
 	private int id;
-	private float price;
+	private double price;
 	private String medicalcenter;
-	public AdminInfo(int id, float price, String medicalcenter) {
+	public AdminInfo(int id, double price, String medicalcenter) {
 		super();
 		this.id = id;
 		this.price = price;
@@ -14,7 +14,7 @@ public class AdminInfo {
 	public int getId() {
 		return id;
 	}
-	public float getPrice() {
+	public double getPrice() {
 		return price;
 	}
 	

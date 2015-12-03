@@ -43,10 +43,10 @@ public class HSMSystem {
 	}
 	
 	public static void runStatistics(){
-		
+		DBProcedures.updatestats();
 	}
 	public static StatisticsIndicatorId getStatisticsIndicator(int IndicatorId){
-		return null;
+		return DBProcedures.getStatsForDisease(IndicatorId);
 	}
 	
 	

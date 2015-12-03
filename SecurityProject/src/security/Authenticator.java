@@ -9,7 +9,7 @@ public class Authenticator
 {
 	
 	
-	public static boolean create_account(String name, String pwd1, String pwd2)
+	public static boolean create_account(String name, String pwd1, String pwd2,int role)
 	{
 	
 		if(!pwd1.equals(pwd2))
@@ -19,7 +19,24 @@ public class Authenticator
 		pwd2= null;
 		if(!SecurityUtils.checkString(name))
 			return false;
-		return DBProcedures.create_user(name, "Mr.", name, epwd);
+		String first="";
+		switch(role){//set first name according to role.......
+		case 1:
+			return false;
+		case 2:
+			first = "Patient";
+			break;
+		case 3:
+			first = "Doctor";
+			break;
+		case 4:
+			first = "Administrative";
+			break;
+		case 5:
+			first = "Manager";
+			break;
+		}
+		return DBProcedures.create_user(name, first, name, epwd, role);
 		
 	}
 	
@@ -73,6 +90,7 @@ public class Authenticator
 					acc.getPassword(), acc.getRole(), true, acc.isLocked());
 		}
 		else{
+			acc = null;
 			pwd= null;
 		}
 		return acc;

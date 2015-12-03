@@ -11,7 +11,8 @@ public class SecurityUtils {
 	}
 	
 	public static boolean checkString(String text){
-		//TODO add other verifications later
-		return !text.contains("'");
+		//unnecessary
+		//return !text.contains("'");
+		return true;
 	}
 }

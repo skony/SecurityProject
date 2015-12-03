@@ -13,6 +13,11 @@ import security.Authenticator;
 @WebServlet("/create_user")
 public class CreateUserServlet extends HttpServlet
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6246139771940769674L;
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		String username = request.getParameter("username");
