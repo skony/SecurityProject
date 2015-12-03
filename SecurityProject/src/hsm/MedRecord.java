@@ -2,6 +2,10 @@ package hsm;
 
 public class MedRecord {
 
+	@Override
+	public String toString() {
+		return patreport.toString() + "\n" + medcase.toString() + "\n" + admininfo.toString() + "\n" +inf.toString()+ "\n" + stats.toString() + "\n";  
+	}
 	private PatReport patreport;
 	private MedCaseInfo medcase;
 	private AdminInfo admininfo;

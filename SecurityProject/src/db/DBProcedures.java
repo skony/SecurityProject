@@ -269,7 +269,7 @@ public class DBProcedures {
 				//patreport
 				int id = rs.getInt("id");
 				PatReport pat;
-				if(rs.getInt("pareportid")<=0)
+				if(rs.getInt("patreportid")<=0)
 					pat=null;
 				else{
 					int patreportid = rs.getInt("patreportid");
@@ -304,7 +304,7 @@ public class DBProcedures {
 					String medicalCenter = rs.getString("medicalcenter");
 					adminfo = new AdminInfo(adminfoid,price,medicalCenter);
 				}
-				InternalInfo internal = new InternalInfo(new Date(rs.getLong("creationdate")),rs.getInt("createdby"),new Date(rs.getLong("lastmodified")),rs.getInt("modifiedby"));
+				InternalInfo internal = new InternalInfo(rs.getTimestamp("creationdate"),rs.getInt("createdby"),rs.getTimestamp("lastmodified"),rs.getInt("modifiedby"));
 
 				result = new MedRecord(id,pat,medinfo,adminfo,internal,stats);
 
@@ -327,7 +327,7 @@ public class DBProcedures {
 			stmt.setInt(1, id);
 			stmt.registerOutParameter(2, OracleTypes.CURSOR); //REF CURSOR
 			stmt.execute();
-			ResultSet rs = ((OracleCallableStatement)stmt).getCursor(5);
+			ResultSet rs = ((OracleCallableStatement)stmt).getCursor(2);
 			MedRecord rec = createObject(rs);
 			stmt.close();
 			stmt = null;
@@ -345,11 +345,11 @@ public class DBProcedures {
 	public static MedRecord fetchMedRecordByPatientId(int id){
 		Connection conn = getConn();
 		try{
-			CallableStatement stmt = conn.prepareCall("BEGIN fetchmedrecordbypatientid(?, ?); END;");
+			CallableStatement stmt = conn.prepareCall("BEGIN fetchmedrecordbypatient(?, ?); END;");
 			stmt.setInt(1, id);
 			stmt.registerOutParameter(2, OracleTypes.CURSOR); //REF CURSOR
 			stmt.execute();
-			ResultSet rs = ((OracleCallableStatement)stmt).getCursor(5);
+			ResultSet rs = ((OracleCallableStatement)stmt).getCursor(2);
 			MedRecord rec = createObject(rs);
 			stmt.close();
 			stmt = null;
@@ -386,7 +386,7 @@ public class DBProcedures {
 			stmt.setInt(1, id);
 			stmt.registerOutParameter(2, OracleTypes.CURSOR); //REF CURSOR
 			stmt.execute();
-			ResultSet rs = ((OracleCallableStatement)stmt).getCursor(5);
+			ResultSet rs = ((OracleCallableStatement)stmt).getCursor(2);
 			StatisticsIndicatorId stats = null;
 			while(rs.next())
 				stats = new StatisticsIndicatorId(rs.getFloat("percentageofpatients"), rs.getFloat("percentageofrecords"));

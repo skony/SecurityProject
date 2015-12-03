@@ -14,6 +14,10 @@ public class AdminInfo {
 	public int getId() {
 		return id;
 	}
+	@Override
+	public String toString() {
+		return "AdminInfo [id=" + id + ", price=" + price + ", medicalcenter=" + medicalcenter + "]";
+	}
 	public double getPrice() {
 		return price;
 	}

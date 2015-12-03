@@ -16,4 +16,9 @@ public class StatisticsIndicatorId {
 	public float getPercentageOfTotal() {
 		return percentageOfTotal;
 	}
+	@Override
+	public String toString() {
+		return "StatisticsIndicatorId [percentageOfAffectedPatients=" + percentageOfAffectedPatients
+				+ ", percentageOfTotal=" + percentageOfTotal + "]";
+	}
 }

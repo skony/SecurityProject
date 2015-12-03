@@ -1,5 +1,3 @@
-drop sequence med_SEQ;
-
 create Table medicalrecords(
 id NUMBER(10) primary key,
 patreportid number(10),
@@ -169,7 +167,7 @@ as
 begin
 open cursorparam for
 select  med.*
-  from users med
+  from MEDICALRECORDS med
 where 
  med.id = medrecordid;
 end;
@@ -188,5 +186,26 @@ from
 where ROWNUM <= 1;
 end;
 
-select * from medicalrecords;
-select * from users;
+create or replace procedure update_stats 
+as
+totalpatients number(10);
+totalrecords number(10);
+begin
+select count(*) into totalrecords from medicalrecords where diseaseid is not null;
+select count(distinct(patientid)) into totalpatients from medicalrecords where diseaseid is not null and patientid != 0;
+update diseases
+set percentageofpatients = ((select count(distinct(patientid)) from MEDICALRECORDS where MEDICALRECORDS.diseaseid = diseases.id and patientid != 0)/totalpatients) ,
+percentageofrecords = ((select count(*) from MEDICALRECORDS where MEDICALRECORDS.diseaseid = diseases.id)/totalrecords) 
+;
+end;
+
+create or replace procedure diseasestats (diseaseid number,cursorParam OUT SYS_REFCURSOR )
+as
+begin
+open cursorparam for
+select  diseases.*
+  from  diseases
+where 
+ diseases.id = diseaseid;
+end;
+

@@ -1,8 +1,15 @@
 package hsm;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class InternalInfo {
+
+	@Override
+	public String toString() {
+		return "InternalInfo [creationdate=" + creationdate + ", createdby=" + createdby + ", lastmodified="
+				+ lastmodified + ", lastmodifiedby=" + lastmodifiedby + "]";
+	}
+
 
 	Date creationdate;
 	int createdby;

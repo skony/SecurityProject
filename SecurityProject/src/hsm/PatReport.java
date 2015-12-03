@@ -4,6 +4,11 @@ import java.sql.Date;
 
 public class PatReport {
 
+	@Override
+	public String toString() {
+		return "PatReport [id=" + id + ", patientId=" + patientId + ", age=" + age + ", date=" + date + "]";
+	}
+
 	private int id;
 	private int patientId;
 	private int age;

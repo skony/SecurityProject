@@ -2,6 +2,13 @@ package hsm;
 
 public class MedCaseInfo {
 
+@Override
+	public String toString() {
+		return "MedCaseInfo [diseaseId=" + diseaseId + ", prescription=" + prescription + ", notes=" + notes + ", id="
+				+ id + ", doctorid=" + doctorid + "]";
+	}
+
+
 private int diseaseId;
 private String prescription;
 private String notes;
