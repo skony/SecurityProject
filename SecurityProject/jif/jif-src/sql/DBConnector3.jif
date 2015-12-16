@@ -1,0 +1,89 @@
+package jif.sql;
+
+import java.sql.*;
+
+public class DBConnector
+authority(DBAdmin)
+{
+   // JDBC driver name and database URL
+   static final String DB_URL = "jdbc:mysql://localhost/my_db";
+
+   //  Database credentials
+   static final String USER = "root";
+   static final String PASS = "root";
+
+   final Connection conn = null;
+   
+   DBConnector() throws Exception {
+
+	 Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);;
+   }
+   
+   public void saveData{DBAdmin->Secret,Public}(MyData{DBAdmin->Secret,Public} myDataRec)
+   where authority(DBAdmin)
+   {
+	   
+   try {
+   	   Statement stmt = conn.createStatement();
+	  
+	   int{DBAdmin->Public} key = myDataRec.getkey();
+	   String{DBAdmin->Secret} secret = myDataRec.getsecret();	 
+	    
+        declassify ({DBAdmin->_}) {
+	     int{DBAdmin->_}    kk = declassify(key, {DBAdmin->_});
+	     String{DBAdmin->_} ss = declassify(secret, {DBAdmin->_});
+		String{DBAdmin->_} sql = "INSERT INTO DB.TABLE VALUES ("+kk+","+ss+")";
+	    stmt.executeUpdate(sql);
+        }
+	 stmt.close();
+   }
+   catch (Exception e) {}
+
+   }
+   
+   public MyData{DBAdmin-> Secret,Public} dbGetRecord{DBAdmin->_}(int{DBAdmin->Public} key)
+   where authority(DBAdmin)
+   {
+     MyData{DBAdmin->Secret,Public} myDataRec = null;
+
+     try {
+
+   	      Statement stmt = conn.createStatement();
+		ResultSet rs = null;
+
+           String{DBAdmin->_} sql;
+
+           declassify ({DBAdmin->_}) {
+	         int{DBAdmin->_}    kk = declassify(key, {DBAdmin->_});
+	         sql = "SELECT * FROM DB.TABLE WHERE key='"+kk+"'";
+           }
+	  		
+	      rs = stmt.executeQuery(sql);
+			      
+	      if(rs.next()){
+		   int {DBAdmin->Public}k = rs.getInt("Key");
+		   String {DBAdmin->Secret}secret = rs.getString("Secret");
+		   myDataRec = new MyData(k,secret);
+	      } else myDataRec = null;
+
+	   	 stmt.close();
+
+     }
+     catch (Exception e) {}
+
+     return myDataRec;
+   }
+
+  void test1{DBAdmin->_}()
+   {
+      MyData{DBAdmin-> Secret,Public} d1 = new MyData(1,"foo");
+      MyData{DBAdmin-> Secret,Public} d2 = dbGetRecord(2);
+      if (d2 != null) {
+         int{DBAdmin->Public} k0 = d2.getkey();
+         String{DBAdmin->Secret} s0 = d1.getsecret();
+         saveData(new MyData(k0+1,s0));
+         saveData(d2);
+      }
+   }
+      
+}

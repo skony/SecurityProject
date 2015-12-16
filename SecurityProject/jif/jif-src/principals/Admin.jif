@@ -1,0 +1,17 @@
+package jif.principals;
+
+public class Admin extends ExternalPrincipal {
+
+    public Admin() {
+	super("Admin");
+    }
+
+    private static Admin{*!:*} P;
+
+    public static Principal getInstance{*!:*}() {
+	if (P == null) {
+	    P = new Admin();
+	}
+	return P;
+    }
+}

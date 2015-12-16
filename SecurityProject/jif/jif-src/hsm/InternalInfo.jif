@@ -1,0 +1,39 @@
+package hsm;
+
+public class InternalInfo {
+
+	String{DBAdmin:Manager} creationdate;
+	int{DBAdmin:Manager} createdby;
+	String{DBAdmin:Manager} lastmodified;
+	int{DBAdmin:Manager} lastmodifiedby;
+	
+	
+	public String{DBAdmin:Manager} getCreationdate() {
+		return creationdate;
+	}
+
+
+	public int{DBAdmin:Manager} getCreatedby() {
+		return createdby;
+	}
+
+
+	public String{DBAdmin:Manager} getLastmodified() {
+		return lastmodified;
+	}
+
+
+	public int{DBAdmin:Manager} getLastmodifiedby() {
+		return lastmodifiedby;
+	}
+
+
+	public InternalInfo(String{DBAdmin:Manager} creationdate, int{DBAdmin:Manager} createdby, String{DBAdmin:Manager} lastmodified, int{DBAdmin:Manager} lastmodifiedby) {
+		super();
+		this.creationdate = creationdate;
+		this.createdby = createdby;
+		this.lastmodified = lastmodified;
+		this.lastmodifiedby = lastmodifiedby;
+	}
+	
+}

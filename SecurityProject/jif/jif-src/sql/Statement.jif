@@ -1,0 +1,13 @@
+package jif.sql;
+
+public interface Statement {
+
+boolean	execute{DBAdmin->_}(String{DBAdmin->_} sql);
+
+boolean	executeUpdate{DBAdmin->_}(String{DBAdmin->_} sql);
+
+ResultSet executeQuery{DBAdmin->_}(String{DBAdmin->_} sql);
+
+void close();
+
+}

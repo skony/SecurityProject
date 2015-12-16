@@ -1,0 +1,27 @@
+package hsm;
+
+public class AdminInfo {
+
+	private int{DBAdmin:Manager,Admin} id;
+	private double{Admin:Manager} price;
+	private String{Admin:Manager} medicalcenter;
+	public AdminInfo(int{DBAdmin:Manager,Admin} id, double{Admin:Manager} price, String{Admin:Manager} medicalcenter) {
+		super();
+		this.id = id;
+		this.price = price;
+		this.medicalcenter = medicalcenter;
+	}
+	public int{DBAdmin:Manager,Admin} getId() {
+		return id;
+	}
+	
+	public double{Admin:Manager} getPrice() {
+		return price;
+	}
+	
+	public String{Admin:Manager} getMedicalcenter() {
+		return medicalcenter;
+	}
+	
+	
+}

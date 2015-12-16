@@ -1,0 +1,17 @@
+package jif.principals;
+
+public class Public extends ExternalPrincipal {
+
+    public Public() {
+	super("Public");
+    }
+
+    private static Public{*!:*} P;
+
+    public static Principal getInstance{*!:*}() {
+	if (P == null) {
+	    P = new Public();
+	}
+	return P;
+    }
+}

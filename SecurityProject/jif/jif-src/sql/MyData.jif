@@ -1,0 +1,20 @@
+package jif.sql;
+
+public class MyData {
+	
+	private int {DBAdmin->Public} key;
+	private String {DBAdmin->Secret} secret;
+	
+	public MyData(int {DBAdmin->Public} key, String{DBAdmin-> Secret} secret){
+	   this.key = key;
+	   this.secret = secret;
+	}
+	
+	public int {DBAdmin->Public} getkey() {
+		return key;
+	}
+	public String{DBAdmin->Secret} getsecret() {
+		return secret;
+	}
+
+}

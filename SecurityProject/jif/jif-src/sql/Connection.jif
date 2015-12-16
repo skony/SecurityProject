@@ -1,0 +1,11 @@
+package jif.sql;
+
+public interface Connection {
+
+
+Statement createStatement();
+
+void close();
+
+
+}
