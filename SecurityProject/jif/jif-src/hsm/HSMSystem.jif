@@ -1,51 +1,79 @@
-package hsm;
+package jif.hsm;
 
-import db.DBProcedures;
+import jif.sigs.DBProcedures;
 
 public class HSMSystem {
 
-	public static MedRecord createNewRecord(String username){
+	public static MedRecord{DBAdmin:Manager} createNewRecord(String{DBAdmin:Manager} username){
 		return DBProcedures.create_medRecord(username);
 	}
 	
-	public static MedRecord findRecord(int patid){
+	public static MedRecord{DBAdmin:Manager,Admin,Patient,Doctor} findRecord(int{DBAdmin:Manager,Admin,Patient,Doctor} patid){
 		return DBProcedures.fetchMedRecordByPatientId(patid);
 	}
 	
-	public static MedRecord findRecordById(int medrecid){
+	public static MedRecord{DBAdmin:Manager,Admin,Doctor} findRecordById(int{DBAdmin:Manager,Admin,Doctor} medrecid){
 		return DBProcedures.fetchMedRecordById(medrecid);
 	}
 	
-	public static PatReport getPatReport(MedRecord med){
-		return med.getPatreport();
+	public static PatReport {Patient:Manager,Admin,Doctor} getPatReport(MedRecord{Patient:Manager,Admin,Doctor} med){
+		try{
+			return med.getPatreport();
+		}catch(NullPointerException e){
+			return null;
+		}
 	}
-	public static MedCaseInfo getMedCaseInfo(MedRecord med){
-		return med.getMedcase();
-	}
-	
-	public static AdminInfo getAdminInfo(MedRecord med){
-		return med.getAdmininfo();
-	}
-	
-	public static InternalInfo getInternalInfo(MedRecord med){
-		return med.getInf();
-	}
-	
-	public static void updatePatReport(String username, MedRecord med,PatReport pat){
-		DBProcedures.update_patRecord(username, med.getId(), pat.getPatientId(), pat.getDate(), pat.getAge());
+	public static MedCaseInfo{Doctor:Manager} getMedCaseInfo(MedRecord{Doctor:Manager} med){
+		try{
+			return med.getMedcase();
+		}catch(NullPointerException e){
+			return null;
+		}
 	}
 	
-	public static void updateMedCaseInfo(String username,MedRecord med ,MedCaseInfo medcase){
-		DBProcedures.update_medcaseinfo(username, med.getId(), medcase.getDiseaseId(), medcase.getPrescription(), medcase.getNotes(), medcase.getDoctorid());
+	public static AdminInfo{Admin:Manager} getAdminInfo(MedRecord{Admin:Manager} med){
+		try{
+			return med.getAdmininfo();
+		}catch(NullPointerException e){
+			return null;
+		}
 	}
-	public static void updateAdminInfo(String username,MedRecord med,AdminInfo adm){
-		DBProcedures.update_AdminInfo(username, med.getId(), adm.getPrice(), adm.getMedicalcenter());
+	
+	public static InternalInfo{DBAdmin:Manager} getInternalInfo(MedRecord{DBAdmin:Manager} med){
+		try{
+			return med.getInf();
+		}catch(NullPointerException e){
+			return null;
+		}
+	}
+	
+	public static void updatePatReport(String{DBAdmin:Manager,Admin,Doctor,Patient} username, MedRecord{DBAdmin:Manager,Admin,Doctor,Patient} med,PatReport{Patient:Manager,Admin,Doctor} pat){
+		try{
+			DBProcedures.update_patRecord(username, med.getId(), pat.getPatientId(), pat.getDate(), pat.getAge());
+		}catch(NullPointerException e){
+
+		}
+	}
+	
+	public static void updateMedCaseInfo(String{Doctor:Manager} username,MedRecord{DBAdmin:Manager,Admin,Doctor,Patient} med ,MedCaseInfo{Doctor:Manager} medcase){
+		try{
+			DBProcedures.update_medcaseinfo(username, med.getId(), medcase.getDiseaseId(), medcase.getPrescription(), medcase.getNotes(), medcase.getDoctorid());
+		}catch(NullPointerException e){
+
+		}
+	}
+	public static void updateAdminInfo(String{Admin:Manager} username,MedRecord{DBAdmin:Manager,Admin,Doctor,Patient} med,AdminInfo{Admin:Manager} adm){
+		try{
+			DBProcedures.update_AdminInfo(username, med.getId(), adm.getPrice(), adm.getMedicalcenter());
+		}catch(NullPointerException e){
+
+		}
 	}
 	
 	public static void runStatistics(){
 		DBProcedures.updatestats();
 	}
-	public static StatisticsIndicatorId getStatisticsIndicator(int IndicatorId){
+	public static StatisticsIndicatorId{DBAdmin:Manager} getStatisticsIndicator(int{DBAdmin:Manager} IndicatorId){
 		return DBProcedures.getStatsForDisease(IndicatorId);
 	}
 	

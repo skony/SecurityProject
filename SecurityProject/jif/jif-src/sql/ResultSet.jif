@@ -36,6 +36,8 @@ int	getConcurrency();
 
 String	getCursorName();
 
+String getDate(String pos);
+
 double	getDouble(int columnIndex);
 
 double	getDouble(String columnLabel);
@@ -73,6 +75,8 @@ short	getShort(String columnLabel);
 String	getString(int columnIndex);
 
 String	getString(String columnLabel);
+
+String getTimestamp(String pos);
 
 boolean	isFirst();
 

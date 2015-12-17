@@ -1,37 +1,34 @@
-package hsm;
+package jif.hsm;
 
-import java.sql.Date;
 
 public class PatReport {
 
-	@Override
-	public String toString() {
-		return "PatReport [id=" + id + ", patientId=" + patientId + ", age=" + age + ", date=" + date + "]";
-	}
 
-	private int id;
-	private int patientId;
-	private int age;
-	private Date date;
+	private int {DBAdmin:Manager,Admin,Patient,Doctor} id;
+	private int {Patient:Manager,Admin,Doctor} patientId;
+	private int {Patient:Manager,Admin,Doctor} age;
+	private String {Patient:Manager,Admin,Doctor} date;
 	
-	public PatReport(int id, int patientId, Date date, int age) {
+	public PatReport(int {DBAdmin:Manager,Admin,Patient,Doctor} id, int {Patient:Manager,Admin,Doctor} patientId, 
+	String {Patient:Manager,Admin,Doctor} date,
+	int {Patient:Manager,Admin,Doctor} age) {
 		this.id = id;
 		this.patientId = patientId;
 		this.date = date;
 		this.age = age;
 	}
-	public int getId() {
+	public int {DBAdmin:Manager,Admin,Patient,Doctor} getId() {
 		return id;
 	}
-	public int getPatientId() {
+	public int {Patient:Manager,Admin,Doctor} getPatientId() {
 		return patientId;
 	}
 	
-	public Date getDate() {
+	public String {Patient:Manager,Admin,Doctor} getDate() {
 		return date;
 	}
 	
-	public int getAge() {
+	public int {Patient:Manager,Admin,Doctor} getAge() {
 		return age;
 	}
 	

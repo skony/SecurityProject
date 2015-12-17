@@ -1,28 +1,27 @@
-package hsm;
+package jif.hsm;
 
 public class MedRecord {
 
-	@Override
-	public String toString() {
-		return patreport.toString() + "\n" + medcase.toString() + "\n" + admininfo.toString() + "\n" +inf.toString()+ "\n" + stats.toString() + "\n";  
-	}
-	private PatReport patreport;
-	private MedCaseInfo medcase;
-	private AdminInfo admininfo;
-	private StatisticsIndicatorId stats;
-	private InternalInfo inf;
-	private int id;
+
+	private PatReport {Patient:Manager,Admin,Doctor} patreport;
+	private MedCaseInfo {Doctor:Manager} medcase;
+	private AdminInfo {Admin:Manager} admininfo;
+	private StatisticsIndicatorId {DBAdmin:Manager} stats;
+	private InternalInfo {DBAdmin:Manager} inf;
+	private int {DBAdmin:Manager} id;
 	
-	public int getId() {
+	public int {DBAdmin:Manager} getId() {
 		return id;
 	}
-	public InternalInfo getInf() {
+	public InternalInfo {DBAdmin:Manager} getInf() {
 		return inf;
 	}
-	public PatReport getPatreport() {
+	public PatReport {Patient:Manager,Admin,Doctor} getPatreport(){
 		return patreport;
 	}
-	public MedRecord(int id, PatReport patreport, MedCaseInfo medcase, AdminInfo admininfo, InternalInfo internal, StatisticsIndicatorId stats) {
+	public MedRecord(int {DBAdmin:Manager} id, PatReport {Patient:Manager,Admin,Doctor} patreport, 
+	MedCaseInfo {Doctor:Manager} medcase, AdminInfo {Admin:Manager} admininfo, InternalInfo {DBAdmin:Manager} internal, 
+	StatisticsIndicatorId {DBAdmin:Manager} stats) {
 		this.id = id;
 		this.patreport = patreport;
 		this.medcase = medcase;
@@ -31,19 +30,17 @@ public class MedRecord {
 		this.stats = stats;
 	}
 	
-	public MedCaseInfo getMedcase() {
+	public MedCaseInfo {Doctor:Manager} getMedcase() {
 		return medcase;
 	}
 
-	public AdminInfo getAdmininfo() {
+	public AdminInfo {Admin:Manager} getAdmininfo() {
 		return admininfo;
 	}
 	
-	public StatisticsIndicatorId getStats() {
+	public StatisticsIndicatorId {DBAdmin:Manager} getStats() {
 		return stats;
 	}
-	public void setStats(StatisticsIndicatorId stats) {
-		this.stats = stats;
-	}
+
 	
 }

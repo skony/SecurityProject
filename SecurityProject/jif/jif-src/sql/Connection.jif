@@ -5,6 +5,8 @@ public interface Connection {
 
 Statement createStatement();
 
+CallableStatement prepareCall {DBAdmin->_} (String{DBAdmin->_} sql);
+
 void close();
 
 

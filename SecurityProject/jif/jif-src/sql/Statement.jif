@@ -8,6 +8,8 @@ boolean	executeUpdate{DBAdmin->_}(String{DBAdmin->_} sql);
 
 ResultSet executeQuery{DBAdmin->_}(String{DBAdmin->_} sql);
 
+
+
 void close();
 
 }

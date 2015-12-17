@@ -1,22 +1,17 @@
-package hsm;
+package jif.hsm;
 
 public class MedCaseInfo {
 
-@Override
-	public String toString() {
-		return "MedCaseInfo [diseaseId=" + diseaseId + ", prescription=" + prescription + ", notes=" + notes + ", id="
-				+ id + ", doctorid=" + doctorid + "]";
-	}
 
 
-private int diseaseId;
-private String prescription;
-private String notes;
-private int id;
-private int doctorid;
+private int {Doctor:Manager} diseaseId;
+private String {Doctor:Manager} prescription;
+private String {Doctor:Manager} notes;
+private int {DBAdmin:Manager,Doctor} id;
+private int {Doctor:Manager} doctorid;
 
 
-public MedCaseInfo( int id,int diseaseId, String prescription, String notes, int doctorid) {
+public MedCaseInfo( int {DBAdmin:Manager,Doctor} id,int {Doctor:Manager} diseaseId, String {Doctor:Manager} prescription, String {Doctor:Manager} notes, int {Doctor:Manager} doctorid) {
 	this.diseaseId = diseaseId;
 	this.prescription = prescription;
 	this.notes = notes;
@@ -25,27 +20,27 @@ public MedCaseInfo( int id,int diseaseId, String prescription, String notes, int
 }
 
 
-public int getDiseaseId() {
+public int {Doctor:Manager} getDiseaseId() {
 	return diseaseId;
 }
 
 
-public String getPrescription() {
+public String {Doctor:Manager} getPrescription() {
 	return prescription;
 }
 
 
-public String getNotes() {
+public String {Doctor:Manager} getNotes() {
 	return notes;
 }
 
 
-public int getId() {
+public int {DBAdmin:Manager,Doctor} getId() {
 	return id;
 }
 
 
-public int getDoctorid() {
+public int {Doctor:Manager} getDoctorid() {
 	return doctorid;
 }
 

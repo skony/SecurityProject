@@ -1,24 +1,20 @@
-package hsm;
+package jif.hsm;
 
 public class StatisticsIndicatorId {
 
-	private float percentageOfAffectedPatients;
-	private float percentageOfTotal;
+	private float {DBAdmin:Manager} percentageOfAffectedPatients;
+	private float {DBAdmin:Manager} percentageOfTotal;
 	
-	public float getPercentageOfAffectedPatients() {
+	public float {DBAdmin:Manager} getPercentageOfAffectedPatients() {
 		return percentageOfAffectedPatients;
 	}
-	public StatisticsIndicatorId(float percentageOfAffectedPatients, float percentageOfTotal) {
+	public StatisticsIndicatorId(float {DBAdmin:Manager} percentageOfAffectedPatients, float {DBAdmin:Manager} percentageOfTotal) {
 		
 		this.percentageOfAffectedPatients = percentageOfAffectedPatients;
 		this.percentageOfTotal = percentageOfTotal;
 	}
-	public float getPercentageOfTotal() {
+	public float {DBAdmin:Manager} getPercentageOfTotal() {
 		return percentageOfTotal;
 	}
-	@Override
-	public String toString() {
-		return "StatisticsIndicatorId [percentageOfAffectedPatients=" + percentageOfAffectedPatients
-				+ ", percentageOfTotal=" + percentageOfTotal + "]";
-	}
+	
 }

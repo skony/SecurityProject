@@ -15,7 +15,7 @@ public abstract class Connection_JIF_IMPL {
     public Connection_JIF_IMPL() { super(); }
     
     public static final String jlc$CompilerVersion$jl = "2.7.0";
-    public static final long jlc$SourceLastModified$jl = 0L;
+    public static final long jlc$SourceLastModified$jl = 1450363369000L;
     public static final String jlc$ClassType$jl =
       ("H4sIAAAAAAAAAI1WXWwUVRS+O223P1S2LT9WfsoAK7aI2xBjjBZ/oKGwuNhK" +
        "QWMJrHdn7pSBu3Ond+6WBaxBEwPxgQcsiA/0CRM1CIkJ8cGQ8KQQjInG+PPg" +
